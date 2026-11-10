@@ -1,3 +1,5 @@
+import { heroFacts } from "../data";
+
 export default function Hero() {
   return (
     <section
@@ -10,6 +12,14 @@ export default function Hero() {
         <div className="flex items-center gap-3 font-mono text-xs uppercase tracking-[0.2em] text-gold mb-8">
           <span className="kit-number-dark w-8 h-8 text-sm">04</span>
           <span>Advanced Diploma ICT · Mpumalanga · Season 2026</span>
+        </div>
+
+        <div className="inline-flex items-center gap-2 mb-6 font-mono text-[11px] uppercase tracking-widest text-paper/80 border border-paper/20 px-3 py-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-gold opacity-60 animate-ping" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
+          </span>
+          Open to opportunities
         </div>
 
         <h1 className="font-display text-4xl sm:text-5xl md:text-6xl leading-[1.05] max-w-3xl text-paper">
@@ -36,6 +46,17 @@ export default function Hero() {
             My journey
           </a>
         </div>
+
+        <dl className="mt-16 pt-8 border-t border-paper/15 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl">
+          {heroFacts.map((fact) => (
+            <div key={fact.label}>
+              <dt className="font-mono text-[11px] uppercase tracking-widest text-paper/50 mb-1">
+                {fact.label}
+              </dt>
+              <dd className="font-display text-xl text-gold">{fact.value}</dd>
+            </div>
+          ))}
+        </dl>
       </div>
     </section>
   );
